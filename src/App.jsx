@@ -12,8 +12,8 @@ export default function App() {
   return (
     <div>
       <h2>My first Apollo app 🚀</h2>
-      <br />
-      <ul className="flex flex-wrap">
+      <br/>
+      <ul className="flex gap-4 justify-center bg-yellow-100">
       {
         data.getProfiles.map(user => (
           <li>
@@ -27,7 +27,6 @@ export default function App() {
             />
           </li>
         ))
-
       }
 
       </ul>
