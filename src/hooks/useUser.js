@@ -4,11 +4,12 @@ import { useQuery } from "@apollo/client/react";
 const GET_USERS = gql`
 query {
     getProfiles {
+        image
         id
         firstName
-        lastName
         email
         phone
+        bio
     }
 }`
 export default function useUser(){
