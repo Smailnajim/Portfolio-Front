@@ -1,12 +1,14 @@
 import useUser from "./hooks/useUser";
 import ProfileCard from "./components/ProfileCard";
 
+
 export default function App() {
   const {loading, error, data} = useUser();
   console.log(loading, error, data);
   console.log("loading, error, data");
   if(loading) return <ProfileCard />
   if(error) return <p>there is an errorn : {error}</p>
+
   return (
     <div>
       <h2>My first Apollo app 🚀</h2>
@@ -29,7 +31,6 @@ export default function App() {
       }
 
       </ul>
-      <ProfileCard />
       {/* <DisplayLocations /> */}
     </div>
   );
