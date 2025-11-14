@@ -8,7 +8,6 @@ query {
         firstName
         lastName
         email
-        password
         phone
     }
 }`
