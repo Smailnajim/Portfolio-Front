@@ -4,7 +4,7 @@ import { useParams } from "react-router-dom";
 
 
 const GET_PORTFOLIO = gql`
-query {
+query GetPortfolio($userId: ID!) {
     getPortfolio(userId: $userId) {
         user {
             id

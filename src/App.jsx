@@ -1,7 +1,8 @@
 import { Routes, Route } from "react-router-dom";
 import Profiles from "./pages/profiles";
 import Layout from "./layouts/index";
-import Portfolio from "./pages/portfolio";
+import Portfolio from "./pages/Portfolio";
+import Login from "./pages/login";
 
 export default function App() {
 
@@ -12,11 +13,12 @@ export default function App() {
         <Route index element={<Profiles />}/>
         <Route path="profiles" element={<Profiles />}/>
         <Route path="profiles/:id" element={<Portfolio />}/>
+        <Route path="users/auth" element={<Login/>}/>
       </Route>
-    </Routes>
       {/* " */}
-      {/* <Routes path='/smail-najim' element={</>}>
-      </Routes> */}
+      {/* <Route path='/smail-najim' element={</>}>
+      </Route> */}
+    </Routes>
     </>
   );
 }
