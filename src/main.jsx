@@ -4,6 +4,7 @@ import { ApolloClient, InMemoryCache } from "@apollo/client";
 import { ApolloProvider } from "@apollo/client/react";
 import App from "./App";
 import { HttpLink } from "@apollo/client";
+import { BrowserRouter } from "react-router-dom";
 
 const client = new ApolloClient({
   link: new HttpLink({
@@ -16,7 +17,9 @@ const client = new ApolloClient({
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
 root.render(
-  <ApolloProvider client={client}>
-    <App />
-  </ApolloProvider>
+  <BrowserRouter>
+    <ApolloProvider client={client}>
+      <App />
+    </ApolloProvider>
+  </BrowserRouter>
 );

@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 export default function ProfileCard({
     image = "./../../public/Pfp.jpg",
     id = "unknown",
@@ -9,11 +11,11 @@ export default function ProfileCard({
     return (
         <div className="max-w-sm mx-auto bg-white rounded-xl shadow-lg overflow-hidden">
             <div className="p-6">
-                <a href="http://"><img 
-                    src={ image ? image:"./../../public/Pfp.jpg" } 
+                <Link to={`/portfolio/${id}`}><img 
+                    src={ image? image:"./../../public/Pfp.jpg" } 
                     alt={firstName} 
                     className="w-24 h-24 rounded-full mx-auto mb-4 object-cover"
-                /></a>
+                /></Link>
                 <h2 className="text-xl font-bold text-center text-gray-800 mb-2">{firstName}</h2>
                 <div className="space-y-2 text-sm text-gray-600">
                     <p className="flex items-center">

@@ -1,36 +1,22 @@
-import useUser from "./hooks/useUser";
-import ProfileCard from "./components/ProfileCard";
-
+import { Routes, Route } from "react-router-dom";
+import Profiles from "./pages/profiles";
+import Layout from "./layouts/index";
+import Test from "./components/test";
 
 export default function App() {
-  const {loading, error, data} = useUser();
-  console.log(loading, error, data);
-  console.log("loading, error, data");
-  if(loading) return <ProfileCard />
-  if(error) return <p>there is an errorn : {error}</p>
 
   return (
-    <div>
-      <h2>My first Apollo app 🚀</h2>
-      <br/>
-      <ul className="flex gap-4 justify-center bg-yellow-100">
-      {
-        data.getProfiles.map(user => (
-          <li>
-            <ProfileCard
-              image = {user.image}
-              id = {user.image}
-              firstName = {user.firstName}
-              email = {user.email}
-              phone = {user.phone}
-              bio = {user.bio}
-            />
-          </li>
-        ))
-      }
-
-      </ul>
-      {/* <DisplayLocations /> */}
-    </div>
+    <>
+    <Routes>
+      <Route path="/" element={<Layout />}>
+        <Route index element={<Profiles />}/>
+        <Route path="profiles" element={<Profiles />}/>
+        <Route path="test" element={<Test />}/>
+      </Route>
+    </Routes>
+      {/* " */}
+      {/* <Routes path='/smail-najim' element={</>}>
+      </Routes> */}
+    </>
   );
 }
