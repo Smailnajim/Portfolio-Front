@@ -11,7 +11,7 @@ export default function ProfileCard({
     return (
         <div className="max-w-sm mx-auto bg-white rounded-xl shadow-lg overflow-hidden">
             <div className="p-6">
-                <Link to={`/portfolio/${id}`}><img 
+                <Link to={`/profiles/${id}`}><img
                     src={ image? image:"./../../public/Pfp.jpg" } 
                     alt={firstName} 
                     className="w-24 h-24 rounded-full mx-auto mb-4 object-cover"
