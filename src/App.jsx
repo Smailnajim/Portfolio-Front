@@ -13,7 +13,7 @@ export default function App() {
         <Route index element={<Profiles />}/>
         <Route path="profiles" element={<Profiles />}/>
         <Route path="profiles/:id" element={<Portfolio />}/>
-        <Route path="users/auth" element={<Login/>}/>
+        <Route path="profiles/auth" element={<Login/>}/>
       </Route>
       {/* " */}
       {/* <Route path='/smail-najim' element={</>}>
