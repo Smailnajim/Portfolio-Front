@@ -1,7 +1,7 @@
 import { Routes, Route } from "react-router-dom";
 import Profiles from "./pages/profiles";
 import Layout from "./layouts/index";
-import Test from "./components/test";
+import Portfolio from "./pages/portfolio";
 
 export default function App() {
 
@@ -11,7 +11,7 @@ export default function App() {
       <Route path="/" element={<Layout />}>
         <Route index element={<Profiles />}/>
         <Route path="profiles" element={<Profiles />}/>
-        <Route path="portfolio/:id" element={<Test />}/>
+        <Route path="portfolio/:id" element={<Portfolio />}/>
       </Route>
     </Routes>
       {/* " */}
