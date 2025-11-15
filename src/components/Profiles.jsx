@@ -9,10 +9,10 @@ export default function Profiles() {
     if (error) return <p>there is an errorn : {error}</p>
 
     return (
-        <ul className="flex gap-4 justify-center">
+        <ul className="flex gap-4 justify-center flex-wrap">
             {
                 data.getProfiles.map(user => (
-                    <li>
+                    <li key={user.id}>
                         <ProfileCard
                             id={user.id}
                             image={user.image}

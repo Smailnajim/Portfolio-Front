@@ -3,11 +3,11 @@ import Navbar from "../components/navbar";
 
 export default function Index(){
     return (
-        <nav className="">
+        <div className="h-screen flex flex-col">
             <Navbar />
-            <main className="">
+            <main className="flex-1">
                 <Outlet />
             </main>
-        </nav>
+        </div>
     );
 }

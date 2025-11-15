@@ -11,7 +11,7 @@ export default function App() {
       <Route path="/" element={<Layout />}>
         <Route index element={<Profiles />}/>
         <Route path="profiles" element={<Profiles />}/>
-        <Route path="test" element={<Test />}/>
+        <Route path="portfolio/:id" element={<Test />}/>
       </Route>
     </Routes>
       {/* " */}
