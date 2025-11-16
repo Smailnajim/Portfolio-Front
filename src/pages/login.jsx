@@ -1,16 +1,43 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import useLogin from "../hooks/useLogin";
 
 export default function Login() {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
+    const [isloading, changeLaoding] = useState("Login");
+    const [isError, setError] = useState("");
 
-    const HandleSubmit = (e) => {
+    const {Login, loading, error, data} = useLogin();
+    console.log('*-*-*-*-*-*-:', {Login, loading, error, data});
+    const HandleSubmit = async (e) => {
         e.preventDefault();
         console.log({ email, password });
-        const {loading, error, data} = useLogin({ email, password });
-        if(loading) 
+        try {
+            changeLaoding("wait...");
+            await Login({
+                variables:{
+                    input:{
+                        email: email,
+                        password: password
+                    }
+                }
+            });
+        } catch (error) {
+            changeLaoding("Login");
+            setError(error.message);
+        }
+
+        // if (loading) changeLaoding("wait...");
+        // if(error) setError(error.message);
     };
+
+    useEffect(()=>{
+        console.log('*data*******', data);
+        if(data?.login?.accessToken){
+            localStorage.setItem('accessToken', data.login.accessToken);
+            window.location.href = '/admin';
+        }
+    }, [data]);
 
     return (
         <div className="min-h-screen flex items-center justify-center bg-gray-50">
@@ -48,8 +75,9 @@ export default function Login() {
                         type="submit"
                         className="w-full bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500"
                     >
-                        Login
+                        {isloading}
                     </button>
+                    <div>{isError}</div>
                 </form>
             </div>
         </div>
