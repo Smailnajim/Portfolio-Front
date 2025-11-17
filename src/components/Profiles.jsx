@@ -1,8 +1,8 @@
 import ProfileCard from "./ProfileCard";
-import useUser from "../hooks/useUser";
+import useProfiles from "../hooks/useProfiles";
 
 export default function Profiles() {
-    const { loading, error, data } = useUser();
+    const { loading, error, data } = useProfiles();
     console.log(loading, error, data);
     console.log("loading, error, data");
     if (loading) return <ProfileCard />

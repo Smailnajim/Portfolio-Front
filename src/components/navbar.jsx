@@ -6,6 +6,7 @@ export default function Navbar(){
             <div className="flex gap-6">
                 <Link to="/profiles" className="hover:text-gray-300">Profiles</Link>
                 <Link to="/profiles/auth" className="hover:text-gray-300">Auth</Link>
+                <Link to="/admin" className="hover:text-gray-300">Admin</Link>
             </div>
         </nav>
     );
