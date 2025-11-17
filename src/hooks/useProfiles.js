@@ -1,18 +1,8 @@
-import { gql } from "@apollo/client";
 import { useQuery } from "@apollo/client/react";
 
-const GET_PROFILES = gql`
-query {
-    getProfiles {
-        image
-        id
-        firstName
-        email
-        phone
-        bio
-    }
-}`
-export default function useProfiles(){
-    const {loading, error, data} = useQuery(GET_PROFILES);
+export default function useProfiles(QUERY_PROFILES){
+
+    console.log('dd', QUERY_PROFILES);
+    const {loading, error, data} = useQuery(QUERY_PROFILES);
     return {loading, error, data};
 } 

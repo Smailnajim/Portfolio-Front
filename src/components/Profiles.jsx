@@ -1,8 +1,21 @@
 import ProfileCard from "./ProfileCard";
 import useProfiles from "../hooks/useProfiles";
+import { gql } from "@apollo/client";
 
 export default function Profiles() {
-    const { loading, error, data } = useProfiles();
+    const QUERY_PROFILES = gql`
+    query {
+        getProfiles {
+            image
+            id
+            firstName
+            email
+            phone
+            bio
+        }
+    }
+    `;
+    const { loading, error, data } = useProfiles(QUERY_PROFILES);
     console.log(loading, error, data);
     console.log("loading, error, data");
     if (loading) return <ProfileCard />

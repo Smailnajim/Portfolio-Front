@@ -18,7 +18,16 @@ query AdminGetPortfolio($userId: ID!) {
             bio
         }
     }
-}
+}`;
+
+const QUERY_PROFILES = gql`
+    query {
+        getProfiles {
+            id
+            firstName
+            email
+        }
+    }
 `;
 
 const defaultFormState = {
@@ -32,7 +41,7 @@ const defaultFormState = {
 };
 
 export default function AdminProfile() {
-    const { loading: profilesLoading, error: profilesError, data: profilesData } = useProfiles();
+    const { loading: profilesLoading, error: profilesError, data: profilesData } = useProfiles(QUERY_PROFILES);
     const [selectedUserId, setSelectedUserId] = useState("");
     const [formData, setFormData] = useState(defaultFormState);
     const [successMessage, setSuccessMessage] = useState("");
