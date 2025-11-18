@@ -1,14 +1,18 @@
-import Redirect from "../util/Redirect";
+import { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
 export default function ProtectedRoute({children, middlewares = []}){
+    const NavigateFunction = useNavigate();
     console.log("middlewares", middlewares);
 
-    // middlewares.forEach((middleware)=>{
-    //     middleware();
-    // })
     const resulta = middlewares.map((middleware)=>middleware());
+
     console.log(resulta);
     console.log(resulta.includes(false));
-    if(resulta.includes(false)) return Redirect('/profiles');
+
+    useEffect(()=>{
+        if(resulta.includes(false)) NavigateFunction('/profiles', {replace: true});
+    }, [resulta, NavigateFunction])
+
     return children;
 }

@@ -5,5 +5,4 @@ export default function Redirect(where){
 
     const navigate = useNavigate();
     navigate(where);
-    // navigate(`${where}`);
 }

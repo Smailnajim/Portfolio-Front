@@ -9,7 +9,6 @@ query GetPortfolio($userId: ID!) {
         user {
             id
             image
-            role
             firstName
             lastName
             email

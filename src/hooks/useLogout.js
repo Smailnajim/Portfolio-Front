@@ -1,7 +1,6 @@
-import { useNavigate } from "react-router-dom";
-
 export default function useLogout(){
+    console.log('accessToken in use Logout', localStorage.getItem('accessToken'));
+    if(localStorage.getItem('accessToken')) return false;
     localStorage.removeItem('accessToken');
-    const NavigateFunction = useNavigate()
-    NavigateFunction('/profiles');
+    return true;
 }

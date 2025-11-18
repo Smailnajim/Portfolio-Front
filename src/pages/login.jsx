@@ -35,7 +35,7 @@ export default function Login() {
         console.log('*data*******', data);
         if(data?.login?.accessToken){
             localStorage.setItem('accessToken', data.login.accessToken);
-            window.location.href = '/admin';
+            window.location.href = '/profiles';
         }
     }, [data]);
 
