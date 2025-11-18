@@ -1,6 +1,6 @@
 import { jwtDecode } from "jwt-decode";
 
-export default function useICan(){
+export default function iCan(){
     const access = localStorage.getItem('accessToken');
     if(!access) return false;
 

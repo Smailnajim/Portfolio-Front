@@ -3,7 +3,7 @@ import { gql } from "@apollo/client";
 import { useQuery } from "@apollo/client/react";
 import useProfiles from "../hooks/useProfiles";
 import useUpdateProfile from "../hooks/useUpdateProfile";
-import useRedirect from "../hooks/useRedirect";
+import Redirect from "../util/Redirect";
 
 const GET_ADMIN_PORTFOLIO = gql`
 query AdminGetPortfolio($userId: ID!) {
@@ -42,7 +42,7 @@ const defaultFormState = {
 };
 
 export default function AdminProfile() {
-    useRedirect();
+    // Redirect('pppppptop');
     const { loading: profilesLoading, error: profilesError, data: profilesData } = useProfiles(QUERY_PROFILES);
     const [selectedUserId, setSelectedUserId] = useState("");
     const [formData, setFormData] = useState(defaultFormState);
@@ -57,7 +57,7 @@ export default function AdminProfile() {
     );
 
     const { updateProfile, loading: updating, error: updateError, data: updateData } = useUpdateProfile();
-            console.log('fff', updateData)
+            console.log('updateData', updateData)
 
 
     useEffect(() => {
