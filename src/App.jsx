@@ -4,6 +4,8 @@ import Layout from "./layouts/index";
 import Portfolio from "./pages/Portfolio";
 import Login from "./pages/login";
 import AdminProfile from "./pages/adminProfile";
+import NotExist from "./pages/NotExist";
+import useLogout from "./hooks/useLogout";
 
 export default function App() {
 
@@ -16,7 +18,8 @@ export default function App() {
         <Route path="profiles/:id" element={<Portfolio />}/>
         <Route path="profiles/auth" element={<Login/>}/>
         <Route path="admin" element={<AdminProfile />}/>
-        <Route path="not-existe" element={< />}/>
+        <Route path="not-exist" element={<NotExist />}/>
+        {/* <Route path="logout" element={useLogout() }/> */}
       </Route>
       {/* " */}
       {/* <Route path='/smail-najim' element={</>}>
