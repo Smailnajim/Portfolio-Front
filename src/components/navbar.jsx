@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import useICan from "../hooks/useICan";
 
 export default function Navbar(){
     return(
@@ -6,7 +7,7 @@ export default function Navbar(){
             <div className="flex gap-6">
                 <Link to="/profiles" className="hover:text-gray-300">Profiles</Link>
                 <Link to="/profiles/auth" className="hover:text-gray-300">Auth</Link>
-                <Link to="/admin" className="hover:text-gray-300">Admin</Link>
+                { useICan() && <Link to="/admin" className="hover:text-gray-300">Admin</Link>}
             </div>
         </nav>
     );

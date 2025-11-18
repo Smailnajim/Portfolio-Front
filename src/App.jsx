@@ -16,6 +16,7 @@ export default function App() {
         <Route path="profiles/:id" element={<Portfolio />}/>
         <Route path="profiles/auth" element={<Login/>}/>
         <Route path="admin" element={<AdminProfile />}/>
+        <Route path="not-existe" element={< />}/>
       </Route>
       {/* " */}
       {/* <Route path='/smail-najim' element={</>}>
