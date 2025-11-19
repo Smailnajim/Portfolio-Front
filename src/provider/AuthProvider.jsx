@@ -3,10 +3,10 @@ import AuthContext from "../context/authContext";
 
 
 export default function AuthProvider({children}) {
-    const [userAuth, setUser] = useState(null);
+    const [user, setUser] = useState(null);
 
     return (
-        <AuthContext.Provider value={{userAuth, setUser}}>
+        <AuthContext.Provider value={{user, setUser}}>
             {children}
         </AuthContext.Provider>
     );

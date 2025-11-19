@@ -14,7 +14,7 @@ import AuthProvider from './provider/AuthProvider';
 export default function App() {
 
   return (
-    <AuthProvider>
+
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<Profiles />}/>
@@ -37,6 +37,5 @@ export default function App() {
         {/* <Route path='/smail-najim' element={</>}>
         </Route> */}
       </Routes>
-    </AuthProvider>
   );
 }

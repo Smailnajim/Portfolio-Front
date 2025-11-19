@@ -2,19 +2,23 @@ import { useContext, useEffect, useState } from "react";
 import useLogin from "../hooks/useLogin";
 import AuthContext from "../context/authContext";
 import { jwtDecode } from "jwt-decode";
+import { useNavigate } from "react-router-dom";
 
 export default function Login() {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [isloading, changeLaoding] = useState("Login");
     const [isError, setError] = useState("");
-    const {userAuth, setUser} = useContext(AuthContext);
+
+    const {user, setUser} = useContext(AuthContext);
+    const navigate = useNavigate()
 
     const {Login, loading, error, data} = useLogin();
     //console.log('*-*-*-*-*-*-:', {Login, loading, error, data});
     const HandleSubmit = async (e) => {
         e.preventDefault();
-        //console.log({ email, password });
+        console.log("HandleSubmit ---------------");
+        console.log({ email, password });
         try {
             changeLaoding("wait...");
             if(error) throw new Error('you are alredy loged in!');
@@ -39,12 +43,16 @@ export default function Login() {
         console.log('*data*******', data);
         if(data?.login?.accessToken){
             localStorage.setItem('accessToken', data.login.accessToken);
-            window.location.href = '/profiles';
+            
             console.log("1eeeeeeeeeeeeeee",data.login.accessToken);
             setUser(jwtDecode(data.login.accessToken));
-            // console.log('uuuuuuuuuuuuuuuu',user)
+            console.log('uuuuuuuuuuuuuuuu')
+
+
+
+            navigate("/profiles")
         }
-    }, [data, setUser]);
+    }, [data, setUser, navigate]);
 
     return (
         <div className="min-h-screen flex items-center justify-center bg-gray-50">
