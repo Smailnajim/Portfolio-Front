@@ -9,6 +9,7 @@ import ProtectedRoute from "./middleware/ProtectedRoute";
 import iCan from "./middleware/iCan";
 import isAuth from "./middleware/isAuth";
 import useLogout from "./hooks/useLogout";
+import AuthProvider from './provider/AuthProvider';
 
 export default function App() {
 

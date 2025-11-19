@@ -5,6 +5,6 @@ export default function iCan(){
     if(!access) return false;
 
     const user = jwtDecode(access);
-    console.log('decoded\n', user.email);
+    //console.log('decoded\n', user.email);
     return user.role === "admin" ? true: false;
 }

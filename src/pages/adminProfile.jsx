@@ -97,7 +97,7 @@ export default function AdminProfile(){
         });
     };
     const { updateProfile, loading: updating, error: updateError, data: updateData } = useUpdateProfile();
-    console.log('updateData', updateData);
+    //console.log('updateData', updateData);
     useEffect(() => {
         if (updateData?.updateProfile) {
             setSuccessMessage("Profil mis à jour avec succès.");

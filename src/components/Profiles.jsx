@@ -16,8 +16,8 @@ export default function Profiles() {
     }
     `;
     const { loading, error, data } = useProfiles(QUERY_PROFILES);
-    console.log(loading, error, data);
-    console.log("loading, error, data");
+    //console.log(loading, error, data);
+    //console.log("loading, error, data");
     if (loading) return <ProfileCard />
     if (error) return <p>there is an errorn : {error}</p>
 
