@@ -7,9 +7,6 @@ import AdminProfile from "./pages/adminProfile";
 import NotExist from "./pages/NotExist";
 import ProtectedRoute from "./middleware/ProtectedRoute";
 import iCan from "./middleware/iCan";
-import isAuth from "./middleware/isAuth";
-import useLogout from "./hooks/useLogout";
-import AuthProvider from './provider/AuthProvider';
 
 export default function App() {
 
@@ -27,11 +24,6 @@ export default function App() {
             </ProtectedRoute>
             }/>
           <Route path="not-exist" element={<NotExist />}/>
-          <Route path="logout" element={
-            <ProtectedRoute middlewares={[isAuth, useLogout]}>
-              <Login/>
-            </ProtectedRoute>
-          }/>
         </Route>
         {/* " */}
         {/* <Route path='/smail-najim' element={</>}>
