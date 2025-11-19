@@ -13,29 +13,29 @@ import useLogout from "./hooks/useLogout";
 export default function App() {
 
   return (
-    <>
-    <Routes>
-      <Route path="/" element={<Layout />}>
-        <Route index element={<Profiles />}/>
-        <Route path="profiles" element={<Profiles />}/>
-        <Route path="profiles/:id" element={<Portfolio />}/>
-        <Route path="profiles/auth" element={<Login/>}/>
-        <Route path="admin" element={
-          <ProtectedRoute middlewares={[iCan]}>
-            <AdminProfile />
-          </ProtectedRoute>
+    <AuthProvider>
+      <Routes>
+        <Route path="/" element={<Layout />}>
+          <Route index element={<Profiles />}/>
+          <Route path="profiles" element={<Profiles />}/>
+          <Route path="profiles/:id" element={<Portfolio />}/>
+          <Route path="profiles/auth" element={<Login/>}/>
+          <Route path="admin" element={
+            <ProtectedRoute middlewares={[iCan]}>
+              <AdminProfile />
+            </ProtectedRoute>
+            }/>
+          <Route path="not-exist" element={<NotExist />}/>
+          <Route path="logout" element={
+            <ProtectedRoute middlewares={[isAuth, useLogout]}>
+              <Login/>
+            </ProtectedRoute>
           }/>
-        <Route path="not-exist" element={<NotExist />}/>
-        <Route path="logout" element={
-          <ProtectedRoute middlewares={[isAuth, useLogout]}>
-            <Login/>
-          </ProtectedRoute>
-        }/>
-      </Route>
-      {/* " */}
-      {/* <Route path='/smail-najim' element={</>}>
-      </Route> */}
-    </Routes>
-    </>
+        </Route>
+        {/* " */}
+        {/* <Route path='/smail-najim' element={</>}>
+        </Route> */}
+      </Routes>
+    </AuthProvider>
   );
 }
